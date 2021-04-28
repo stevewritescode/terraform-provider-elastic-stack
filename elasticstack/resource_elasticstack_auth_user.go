@@ -75,12 +75,8 @@ func parseUserResourceData(d *schema.ResourceData) (esapiUserData, error) {
 		Email:        d.Get("email").(string),
 		Password:     d.Get("password").(string),
 		PasswordHash: d.Get("password_hash").(string),
+		Roles:        expandStringList(d.Get("roles").([]interface{})),
 	}
-	rolesList := []string{}
-	for _, v := range d.Get("roles").([]interface{}) {
-		rolesList = append(rolesList, v.(string))
-	}
-	userData.Roles = rolesList
 
 	if userData.Password == "" && userData.PasswordHash == "" {
 		return userData, fmt.Errorf("must specify either 'password' or 'password_hash'")

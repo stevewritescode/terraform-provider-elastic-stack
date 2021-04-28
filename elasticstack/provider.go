@@ -14,7 +14,9 @@ func Provider() *schema.Provider {
 	return &schema.Provider{
 		Schema: newSchema(),
 		ResourcesMap: map[string]*schema.Resource{
-			"elasticstack_auth_user": resourceElasticstackAuthUser(),
+			"elasticstack_auth_user":         resourceElasticstackAuthUser(),
+			"elasticstack_auth_role":         resourceElasticstackAuthRole(),
+			"elasticstack_auth_role_mapping": resourceElasticstackAuthRoleMapping(),
 		},
 		ConfigureContextFunc: providerConfigure,
 	}
