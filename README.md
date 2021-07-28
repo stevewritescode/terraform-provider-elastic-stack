@@ -1,3 +1,5 @@
+This project was migrated to https://github.com/tsouza/terraform-provider-elasticstack. Thanks!
+
 # Terraform Provider for Elastic Stack
 
 ### Development
